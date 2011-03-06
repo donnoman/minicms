@@ -2,7 +2,7 @@
 /**************************************************
   CPG MiniCMS Plugin for Coppermine Photo Gallery
   *************************************************
-  CPGMiniCMS version: 1.0 - 1.6
+  CPGMiniCMS
   Copyright (c) 2005-2006 Donovan Bray <donnoman@donovanbray.com>
   *************************************************
   1.3.0  eXtended miniCMS
@@ -15,8 +15,8 @@
   the Free Software Foundation; either version 2 of the License, or
   (at your option) any later version.
   *************************************************
-  Coppermine version: 1.4.9
-  CPGMiniCMS version: 1.7A1
+  Coppermine version: 1.4.x
+
   $Source: /cvsroot/cpg-contrib/minicms/cms_edit.php,v $
   $Revision: 1.21 $
   $Author: donnoman $
