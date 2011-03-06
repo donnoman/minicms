@@ -29,14 +29,14 @@ if (file_exists("plugins/minicms/lang/{$CONFIG['lang']}.php")) {
 } else require 'plugins/minicms/lang/english.php';
 
 $install_info=<<<EOT
-    <a href="plugins/minicms/readme" title="README" class="admin_menu">README</a>&nbsp;
-    <a href="plugins/minicms/changelog" title="CHANGELOG" class="admin_menu">CHANGELOG</a>&nbsp;
+    <a href="plugins/minicms/README" title="README" class="admin_menu">README</a>&nbsp;
+    <a href="plugins/minicms/CHANGELOG" title="CHANGELOG" class="admin_menu">CHANGELOG</a>&nbsp;
     <a href="index.php?file=minicms/cms_config" title="{$lang_minicms['config_title']}" class="admin_menu">{$lang_minicms['config_title']}</a>
 EOT;
 
 $extra_info = <<<EOT
-    <a href="plugins/minicms/readme" title="README" class="admin_menu">README</a>&nbsp;
-    <a href="plugins/minicms/changelog" title="CHANGELOG" class="admin_menu">CHANGELOG</a>
+    <a href="plugins/minicms/README" title="README" class="admin_menu">README</a>&nbsp;
+    <a href="plugins/minicms/CHANGELOG" title="CHANGELOG" class="admin_menu">CHANGELOG</a>
 EOT;
 
 ?>
