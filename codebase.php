@@ -1,10 +1,31 @@
 <?php
 /**************************************************
-  MiniCMS Plugin for Coppermine Photo Gallery
+  CPG MiniCMS Plugin for Coppermine Photo Gallery
+  *************************************************
+  CPGMiniCMS
+  Copyright (c) 2005-2006 Donovan Bray <donnoman@donovanbray.com>
+  *************************************************
+  1.3.0  eXtended miniCMS
+  Copyright (C) 2004 Michael Trojacher <m.trojacher@webtips.at>
+  Original miniCMS Code (c) 2004 by Tarique Sani <tarique@sanisoft.com>,
+  Amit Badkas <amit@sanisoft.com>
+  *************************************************
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+  *************************************************
+  Coppermine version: 1.5.x
+
+  $HeadURL: https://coppermine.svn.sourceforge.net/svnroot/coppermine/branches/cpg1.5.x/plugins/minicms/codebase.php $
+  $Revision: 8063 $
+  $Author: eenemeenemuu $
+  $Date: 2010-11-22 12:30:11 +0100 (Mo, 22 Nov 2010) $
 ***************************************************/
 
-if (!defined('IN_COPPERMINE')) die('Not in Coppermine...');
 
+if (!defined('IN_COPPERMINE')) die('Not in Coppermine...');
+$superCage = Inspekt::makeSuperCage();
 
 // Add an install action
 $thisplugin->add_action('plugin_install','minicms_install');
@@ -19,27 +40,32 @@ $thisplugin->add_action('page_start','minicms_page_start');
 
 
 // Add a filter
-$thisplugin->add_filter('post_breadcrumb','minicms_print'); //below the breadcrumb
+$thisplugin->add_action('post_breadcrumb','minicms_print'); //below the breadcrumb
 $thisplugin->add_filter('plugin_block','minicms_plugin_block');
+
 
 function minicms_template_html ()
 {
-	//place additional minicms tags in the templates.
-	//search page
+    //place additional minicms tags in the templates.
+    //search page
 }
 
 function minicms_page_html ()
 {
-	//extract all minicms tags
-	//render them to string or array
-	//replace them in the stream
+    //extract all minicms tags
+    //render them to string or array
+    //replace them in the stream
 }
 
 function minicms_plugin_block($content)
 {
+    
     if (!strcasecmp($content[1],'minicms')) {
         print(minicms());
     }
+    //return $content;
+    if ($content[0]=='minicms') $content ="";
+    
     return $content;
 }
 
@@ -77,7 +103,8 @@ function minicms($content='')
 
     ob_start();
     theme_minicms($cms_array);
-    $content.=ob_get_clean();
+    //$content.=ob_get_clean();
+    $content =ob_get_clean();
     return $content;
 }
 
@@ -103,15 +130,15 @@ function minicms_page_start()
   global $CONFIG, $MINICMS, $album, $cat;
   global $HTML_SUBST, $HTML_SUBST_DECODE, $template_minicms, $REFERER, $CURRENT_PIC_DATA;
   require 'plugins/minicms/include/init.inc.php';
-
-  if ($MINICMS['redirect_index_php'] && empty($_SERVER["QUERY_STRING"]) && strstr($_SERVER["PHP_SELF"],'index.php')) {
+     
+  /*if ($MINICMS['redirect_index_php'] && empty($_SERVER["QUERY_STRING"]) && strstr($_SERVER["PHP_SELF"],'index.php')) {
       header('Location: '.html_entity_decode($MINICMS['redirect_index_php']));
       exit();
-  }
+  } */
 
   if (GALLERY_ADMIN_MODE) {
-	  minicms_add_admin_button('index.php?file=minicms/cms_admin',$lang_minicms['admin_title'],'',$lang_minicms['admin_title']);
-	  //minicms_add_admin_button('index.php?file=minicms/cms_config',$lang_minicms['config_title'],'',$lang_minicms['config_title']);
+      minicms_add_admin_button('index.php?file=minicms/cms_admin',$lang_minicms['admin_title'],'',$lang_minicms['admin_title']);
+      //minicms_add_admin_button('index.php?file=minicms/cms_config',$lang_minicms['config_title'],'',$lang_minicms['config_title']);
   }
 }
 
@@ -119,13 +146,14 @@ function minicms_page_start()
 function minicms_install()
 {
     // Install
-    if ($_REQUEST['submit']=='Go!') {
-
+    //if ($_REQUEST['submit']=='Go!') {
+    $superCage = Inspekt::makeSuperCage();
+    $action = $superCage->post->getRaw('submit');
+    if ($action == 'Go!') {
         return true;
 
     // Loop again
     } else {
-
         return 1;
     }
 }
@@ -155,9 +183,9 @@ function minicms_configure_query($query)
 // Displays the form
 function minicms_configure($stop=true)
 {
-    global $errors, $CONFIG;
+    global $errors, $CONFIG, $CPG_PHP_SELF;
     require ('include/sql_parse.php');
-
+     
     $db_update = 'plugins/minicms/sql/basic.sql';
     $sql_query = fread(fopen($db_update, 'r'), filesize($db_update));
     // Update table prefix
@@ -169,11 +197,10 @@ function minicms_configure($stop=true)
         $sql_query[] = "UPDATE {$CONFIG['TABLE_CONFIG']} SET value = 'minicms/".$CONFIG['main_page_layout']."'  WHERE name = 'main_page_layout'";
     }
 
-    ?>
+    echo '
         <h2>Performing Database Updates<h2>
         <table class="maintable">
-
-    <?php
+    ';
 
     foreach($sql_query as $q) {
         echo "<tr><td class='tableb'>$q</td>";
@@ -190,9 +217,11 @@ function minicms_configure($stop=true)
     echo "</table>";
 
     if ($stop) {
+        $superCage = Inspekt::makeSuperCage();
+        $request_uri = $superCage->server->getEscaped('REQUEST_URI');
         echo <<< EOT
 
-        <form action="{$_SERVER['REQUEST_URI']}" method="post">
+        <form action="{$request_uri}" method="post">
             <input type="submit" value="Go!" name="submit" />
         </form>
 EOT;

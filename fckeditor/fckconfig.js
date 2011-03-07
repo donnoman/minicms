@@ -91,7 +91,7 @@ FCKConfig.ToolbarStartExpanded	= true ;
 FCKConfig.ToolbarCanCollapse	= true ;
 FCKConfig.IgnoreEmptyParagraphValue = true ;
 FCKConfig.FloatingPanelsZIndex = 10000 ;
-FCKConfig.HtmlEncodeOutput = false ;
+FCKConfig.HtmlEncodeOutput = true ;
 
 FCKConfig.TemplateReplaceAll = true ;
 FCKConfig.TemplateReplaceCheckbox = true ;
@@ -99,51 +99,51 @@ FCKConfig.TemplateReplaceCheckbox = true ;
 FCKConfig.ToolbarLocation = 'In' ;
 
 FCKConfig.ToolbarSets["Default"] = [
-	['Source','DocProps','-','Save','NewPage','Preview','-','Templates'],
-	['Cut','Copy','Paste','PasteText','PasteWord','-','Print','SpellCheck'],
-	['Undo','Redo','-','Find','Replace','-','SelectAll','RemoveFormat'],
-	['Form','Checkbox','Radio','TextField','Textarea','Select','Button','ImageButton','HiddenField'],
-	'/',
-	['Bold','Italic','Underline','StrikeThrough','-','Subscript','Superscript'],
-	['OrderedList','UnorderedList','-','Outdent','Indent','Blockquote','CreateDiv'],
-	['JustifyLeft','JustifyCenter','JustifyRight','JustifyFull'],
-	['Link','Unlink','Anchor'],
-	['Image','Flash','Table','Rule','Smiley','SpecialChar','PageBreak'],
-	'/',
-	['Style','FontFormat','FontName','FontSize'],
-	['TextColor','BGColor'],
-	['FitWindow','ShowBlocks','-','About']		// No comma for the last row.
+    ['Source','DocProps','-','Save','NewPage','Preview','-','Templates'],
+    ['Cut','Copy','Paste','PasteText','PasteWord','-','Print','SpellCheck'],
+    ['Undo','Redo','-','Find','Replace','-','SelectAll','RemoveFormat'],
+    ['Form','Checkbox','Radio','TextField','Textarea','Select','Button','ImageButton','HiddenField'],
+    '/',
+    ['Bold','Italic','Underline','StrikeThrough','-','Subscript','Superscript'],
+    ['OrderedList','UnorderedList','-','Outdent','Indent','Blockquote','CreateDiv'],
+    ['JustifyLeft','JustifyCenter','JustifyRight','JustifyFull'],
+    ['Link','Unlink','Anchor'],
+    ['Image','Flash','Table','Rule','Smiley','SpecialChar','PageBreak'],
+    '/',
+    ['Style','FontFormat','FontName','FontSize'],
+    ['TextColor','BGColor'],
+    ['FitWindow','ShowBlocks','-','About']		// No comma for the last row.
 ] ;
 
 FCKConfig.ToolbarSets["Basic"] = [
-	['Bold','Italic','-','OrderedList','UnorderedList','-','Link','Unlink','-','About']
+    ['Bold','Italic','-','OrderedList','UnorderedList','-','Link','Unlink','-','About']
 ] ;
 
 FCKConfig.EnterMode = 'p' ;			// p | div | br
 FCKConfig.ShiftEnterMode = 'br' ;	// p | div | br
 
 FCKConfig.Keystrokes = [
-	[ CTRL + 65 /*A*/, true ],
-	[ CTRL + 67 /*C*/, true ],
-	[ CTRL + 70 /*F*/, true ],
-	[ CTRL + 83 /*S*/, true ],
-	[ CTRL + 84 /*T*/, true ],
-	[ CTRL + 88 /*X*/, true ],
-	[ CTRL + 86 /*V*/, 'Paste' ],
-	[ CTRL + 45 /*INS*/, true ],
-	[ SHIFT + 45 /*INS*/, 'Paste' ],
-	[ CTRL + 88 /*X*/, 'Cut' ],
-	[ SHIFT + 46 /*DEL*/, 'Cut' ],
-	[ CTRL + 90 /*Z*/, 'Undo' ],
-	[ CTRL + 89 /*Y*/, 'Redo' ],
-	[ CTRL + SHIFT + 90 /*Z*/, 'Redo' ],
-	[ CTRL + 76 /*L*/, 'Link' ],
-	[ CTRL + 66 /*B*/, 'Bold' ],
-	[ CTRL + 73 /*I*/, 'Italic' ],
-	[ CTRL + 85 /*U*/, 'Underline' ],
-	[ CTRL + SHIFT + 83 /*S*/, 'Save' ],
-	[ CTRL + ALT + 13 /*ENTER*/, 'FitWindow' ],
-	[ SHIFT + 32 /*SPACE*/, 'Nbsp' ]
+    [ CTRL + 65 /*A*/, true ],
+    [ CTRL + 67 /*C*/, true ],
+    [ CTRL + 70 /*F*/, true ],
+    [ CTRL + 83 /*S*/, true ],
+    [ CTRL + 84 /*T*/, true ],
+    [ CTRL + 88 /*X*/, true ],
+    [ CTRL + 86 /*V*/, 'Paste' ],
+    [ CTRL + 45 /*INS*/, true ],
+    [ SHIFT + 45 /*INS*/, 'Paste' ],
+    [ CTRL + 88 /*X*/, 'Cut' ],
+    [ SHIFT + 46 /*DEL*/, 'Cut' ],
+    [ CTRL + 90 /*Z*/, 'Undo' ],
+    [ CTRL + 89 /*Y*/, 'Redo' ],
+    [ CTRL + SHIFT + 90 /*Z*/, 'Redo' ],
+    [ CTRL + 76 /*L*/, 'Link' ],
+    [ CTRL + 66 /*B*/, 'Bold' ],
+    [ CTRL + 73 /*I*/, 'Italic' ],
+    [ CTRL + 85 /*U*/, 'Underline' ],
+    [ CTRL + SHIFT + 83 /*S*/, 'Save' ],
+    [ CTRL + ALT + 13 /*ENTER*/, 'FitWindow' ],
+    [ SHIFT + 32 /*SPACE*/, 'Nbsp' ]
 ] ;
 
 FCKConfig.ContextMenu = ['Generic','Link','Anchor','Image','Flash','Select','Textarea','Checkbox','Radio','TextField','HiddenField','ImageButton','Button','BulletedList','NumberedList','Table','Form','DivContainer'] ;
@@ -202,57 +202,57 @@ FCKConfig.RemoveAttributes = 'class,style,lang,width,height,align,hspace,valign'
 
 FCKConfig.CustomStyles =
 {
-	'Red Title'	: { Element : 'h3', Styles : { 'color' : 'Red' } }
+    'Red Title'	: { Element : 'h3', Styles : { 'color' : 'Red' } }
 };
 
 // Do not add, rename or remove styles here. Only apply definition changes.
 FCKConfig.CoreStyles =
 {
-	// Basic Inline Styles.
-	'Bold'			: { Element : 'strong', Overrides : 'b' },
-	'Italic'		: { Element : 'em', Overrides : 'i' },
-	'Underline'		: { Element : 'u' },
-	'StrikeThrough'	: { Element : 'strike' },
-	'Subscript'		: { Element : 'sub' },
-	'Superscript'	: { Element : 'sup' },
+    // Basic Inline Styles.
+    'Bold'			: { Element : 'strong', Overrides : 'b' },
+    'Italic'		: { Element : 'em', Overrides : 'i' },
+    'Underline'		: { Element : 'u' },
+    'StrikeThrough'	: { Element : 'strike' },
+    'Subscript'		: { Element : 'sub' },
+    'Superscript'	: { Element : 'sup' },
 
-	// Basic Block Styles (Font Format Combo).
-	'p'				: { Element : 'p' },
-	'div'			: { Element : 'div' },
-	'pre'			: { Element : 'pre' },
-	'address'		: { Element : 'address' },
-	'h1'			: { Element : 'h1' },
-	'h2'			: { Element : 'h2' },
-	'h3'			: { Element : 'h3' },
-	'h4'			: { Element : 'h4' },
-	'h5'			: { Element : 'h5' },
-	'h6'			: { Element : 'h6' },
+    // Basic Block Styles (Font Format Combo).
+    'p'				: { Element : 'p' },
+    'div'			: { Element : 'div' },
+    'pre'			: { Element : 'pre' },
+    'address'		: { Element : 'address' },
+    'h1'			: { Element : 'h1' },
+    'h2'			: { Element : 'h2' },
+    'h3'			: { Element : 'h3' },
+    'h4'			: { Element : 'h4' },
+    'h5'			: { Element : 'h5' },
+    'h6'			: { Element : 'h6' },
 
-	// Other formatting features.
-	'FontFace' :
-	{
-		Element		: 'span',
-		Styles		: { 'font-family' : '#("Font")' },
-		Overrides	: [ { Element : 'font', Attributes : { 'face' : null } } ]
-	},
+    // Other formatting features.
+    'FontFace' :
+    {
+        Element		: 'span',
+        Styles		: { 'font-family' : '#("Font")' },
+        Overrides	: [ { Element : 'font', Attributes : { 'face' : null } } ]
+    },
 
-	'Size' :
-	{
-		Element		: 'span',
-		Styles		: { 'font-size' : '#("Size","fontSize")' },
-		Overrides	: [ { Element : 'font', Attributes : { 'size' : null } } ]
-	},
+    'Size' :
+    {
+        Element		: 'span',
+        Styles		: { 'font-size' : '#("Size","fontSize")' },
+        Overrides	: [ { Element : 'font', Attributes : { 'size' : null } } ]
+    },
 
-	'Color' :
-	{
-		Element		: 'span',
-		Styles		: { 'color' : '#("Color","color")' },
-		Overrides	: [ { Element : 'font', Attributes : { 'color' : null } } ]
-	},
+    'Color' :
+    {
+        Element		: 'span',
+        Styles		: { 'color' : '#("Color","color")' },
+        Overrides	: [ { Element : 'font', Attributes : { 'color' : null } } ]
+    },
 
-	'BackColor'		: { Element : 'span', Styles : { 'background-color' : '#("Color","color")' } },
+    'BackColor'		: { Element : 'span', Styles : { 'background-color' : '#("Color","color")' } },
 
-	'SelectionHighlight' : { Element : 'span', Styles : { 'background-color' : 'navy', 'color' : 'white' } }
+    'SelectionHighlight' : { Element : 'span', Styles : { 'background-color' : 'navy', 'color' : 'white' } }
 };
 
 // The distance of an indentation step.

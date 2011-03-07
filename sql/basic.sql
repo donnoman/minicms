@@ -1,6 +1,25 @@
-#**************************************************
-#  MiniCMS Plugin for Coppermine Photo Gallery
-#**************************************************
+#/**************************************************
+#  CPG MiniCMS Plugin for Coppermine Photo Gallery
+#  *************************************************
+#  CPGMiniCMS
+#  Copyright (c) 2005-2006 Donovan Bray <donnoman@donovanbray.com>
+#  *************************************************
+#  1.3.0  eXtended miniCMS
+#  Copyright (C) 2004 Michael Trojacher <m.trojacher@webtips.at>
+#  Original miniCMS Code (c) 2004 by Tarique Sani <tarique@sanisoft.com>,
+#  Amit Badkas <amit@sanisoft.com>
+#  *************************************************
+#  This program is free software; you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License as published by
+#  the Free Software Foundation; either version 2 of the License, or
+#  (at your option) any later version.
+#  *************************************************
+#  Coppermine version: 1.4.x
+#  $Source: /cvsroot/cpg-contrib/minicms/sql/basic.sql,v $
+#  $Revision: 8016 $
+#  $Author: eenemeenemuu $
+#  $Date: 2010-11-08 10:57:32 +0100 (Mo, 08 Nov 2010) $
+#***************************************************/
 
 #
 # Table structure for table `CPG_cms`
@@ -52,5 +71,5 @@ ALTER TABLE `CPG_cms` DROP `pos`;
 
 # Write this dbver to the config table
 # This should match the DBVER constant in init.inc.php
-UPDATE CPG_cms_config SET value='1.4.8' WHERE name='dbver';
+UPDATE CPG_cms_config SET value='1.5.8' WHERE name='dbver';
 
