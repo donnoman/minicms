@@ -1,5 +1,5 @@
 /**************************************************
-  MiniCMS Plugin for Coppermine Photo Gallery
+  MiniCMS Plugin for Coppermine Photo Gallery 1.4.x
 ***************************************************
 Changelog
 =========
@@ -12,6 +12,7 @@ Changelog
 [S] = Security fix (issues that are related to security)
 ***************************************************/
 
+2011-03-06 [D] Shortned all of the headers in files; Copyright and Versions only need to be maintained in readme.txt {donnoman}
 2009-11-03 [M] Release of plugin MiniCMS {GauGau}
 2009-11-03 [M] Removal of reference to cpg-contrib.org because site is down {GauGau}
 2009-11-03 [M] Added MiniCMS to SVN repository of coppermine project {GauGau}
