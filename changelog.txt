@@ -1,8 +1,6 @@
-/**************************************************
-  CPG MiniCMS Plugin for Coppermine Photo Gallery
-***************************************************
-Coppermine version: 1.5.x
-*********************************************
+/******************************************************
+  CPG MiniCMS Plugin for Coppermine Photo Gallery 1.5.x
+*******************************************************
 Changelog
 =========
 [A] = Added new feature
@@ -12,8 +10,9 @@ Changelog
 [M] = Maintenance works
 [O] = Optimization of code
 [S] = Security fix (issues that are related to security)
-***************************************************/
+*******************************************************/
 
+2011-03-06 [D] Shortned all of the headers in files; Copyright and Versions only need to be maintained in readme.txt {donnoman}
 2010-11-30 [M] Public release for cpg1.5.10 {eenemeenemuu}
 2010-11-22 [M] Updated plugin hooks and minimum version info {eenemeenemuu}
 2010-11-19 [B] Fixed issue with special chars for FCKeditor {eenemeenemuu}
